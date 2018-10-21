@@ -35,6 +35,31 @@ var sourceToValue = new Map([
     ["usa-today", 4],
 ]);
 
+var sourceNames = new Map([
+    ["abc-news", "ABC News"],
+    ["bbc-news", "BBC News"],
+    ["bloomberg", "Bloomberg"],
+    ["buzzfeed", "Buzzfeed News"],
+    ["cbs-news", "CBS News"],
+    ["fox-news", "FOX News"],
+    ["nbc-news", "NBC News"],
+    ["new-york-magazine", "New York Magazine"],
+    ["politico", "Politico"],
+    ["reuters", "Reuters"],
+    ["the-american-conservative", "the American Conservative"],
+    ["the-economist", "The Economist"],
+    ["the-guardian-uk", "The Guardian"],
+    ["the-hill", "The Hill"],
+    ["the-huffington-post", "The Huffington Post"],
+    ["the-new-york-times", "The New York Times"],
+    ["the-wall-street-journal", "The Wall Street Journal"],
+    ["the-washington-post", "The Washington Post"],
+    ["the-washington-times", "The Washington Times"],
+    ["time", "TIME"],
+    ["usa-today", "USA TODAY"],
+]);
+
+//gets the id of the dropdown selection
 var currentSource;
 $(function(){
   $(".dropdown-menu a").click(function(e){
@@ -45,7 +70,6 @@ $(function(){
     $(".btn:first-child").val($(this).text());
   });
 });
-
 
 /*
     pre: takes in strings keyword and source.
@@ -89,8 +113,8 @@ function specifySource() {
     listOfSources = valueToSource.get(oppositePolarity);
     randomSource = pickRandomSource(listOfSources);
 
-    queryNewsAPI(keyword, source, "article1");
-    queryNewsAPI(keyword, randomSource, "article2");
+    queryNewsAPI(keyword, source, "articleL");
+    queryNewsAPI(keyword, randomSource, "articleR");
 
 }
 

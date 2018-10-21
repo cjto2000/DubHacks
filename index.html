@@ -11,8 +11,13 @@
         <script src = "getjsondata.js"></script>
         <style>
             .fakeimg {
-              height: 200px;
-              background: #aaa;
+                height: 200px;
+                background: #aaa;
+            }
+            .news-window {
+                height: 300%;
+                width: 100%;
+                border-style: none;
             }
         </style>
     </head>
@@ -58,13 +63,23 @@
                         <a class="dropdown-item" id="abc-news" href="#">ABC News</a>
                         <a class="dropdown-item" id="bbc-news" href="#">BBC News</a>
                         <a class="dropdown-item" id="bloomberg" href="#">Bloomberg</a>
-                        <a class="dropdown-item" id="buzzfeed" href="#">Buzzfeed</a>
+                        <a class="dropdown-item" id="buzzfeed" href="#">Buzzfeed News</a>
                         <a class="dropdown-item" id="cbs-news" href="#">CBS News</a>
-                        <a class="dropdown-item" id="fox-news" href="#">Fox News</a>
+                        <a class="dropdown-item" id="fox-news" href="#">FOX News</a>
                         <a class="dropdown-item" id="new-york-magazine" href="#">New York Magazine</a>
                         <a class="dropdown-item" id="politico" href="#">Politico</a>
                         <a class="dropdown-item" id="reuters" href="#">Reuters</a>
                         <a class="dropdown-item" id="the-american-conservative" href="#">American Conservative</a>
+                        <a class="dropdown-item" id="the-economist" href="#">The Economist</a>
+                        <a class="dropdown-item" id="the-guardian-uk" href="#">The Guardian</a>
+                        <a class="dropdown-item" id="the-hill" href="#">The Hill</a>
+                        <a class="dropdown-item" id="the-huffington-post" href="#">American Conservative</a>
+                        <a class="dropdown-item" id="the-new-york-times" href="#">The New York Times</a>
+                        <a class="dropdown-item" id="the-wall-street-journal" href="#">The Wall Street Journal</a>
+                        <a class="dropdown-item" id="the-washington-post" href="#">The Washington Post</a>
+                        <a class="dropdown-item" id="the-washington-times" href="#">The Washington Times</a>
+                        <a class="dropdown-item" id="time" href="#">TIME</a>
+                        <a class="dropdown-item" id="usa-today" href="#">USA TODAY</a>
                     </div>
                 </div>
                 <!--  search half -->
@@ -78,17 +93,16 @@
                 </div>
             </div>
             <br>
+        </div>
+        <div class="container">
             <div class="row text    ">
-                <div class="col-5">
+                <div class="col-6">
                     <h3 class="text-center">Insert News Agency 1</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                    <iframe class="news-window" id="articleL"></iframe>
                 </div>
-                <div class="col-2"></div>
-                <div class="col-5">
+                <div class="col-6">
                     <h3 class="text-center">Insert News Agency 2</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                    <iframe class="news-window" id="articleR"></iframe>
                 </div>
             </div>
         </div>
