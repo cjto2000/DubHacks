@@ -74,7 +74,7 @@ $(function(){
         source is which news outlet to search from.
     post: print out some form of data response from the News API
 */
-function queryNewsAPI(keyword, source, article, fail) {
+function queryNewsAPI(keyword, source, article, fail, link) {
     // Make a url with query strings and apiKey
     var url = "https://newsapi.org/v2/everything?" +
     "q=" + keyword + "&" +
@@ -92,7 +92,10 @@ function queryNewsAPI(keyword, source, article, fail) {
         .then(function (response) {  // Processing to get the json from the response
             console.log(response);
             if (response.articles.length > 0) {
-                document.getElementById(article).setAttribute("src", response.articles[0].url);
+                var articleURL = response.articles[0].url;
+                document.getElementById(article).setAttribute("src", articleURL);
+                document.getElementById(link).setAttribute("href", articleURL);
+                document.getElementById(link).innerHTML = articleURL;
             } else {
                 document.getElementById(fail).innerHTML = "No articles found.";
             }
@@ -119,8 +122,8 @@ function specifySource() {
     document.getElementById("fail2").innerHTML = "";
     document.getElementById("articleL").src = "about:blank";
     document.getElementById("articleR").src = "about:blank";
-    queryNewsAPI(keyword, source, "articleL", "fail1");
-    queryNewsAPI(keyword, randomSource, "articleR", "fail2");
+    queryNewsAPI(keyword, source, "articleL", "fail1", "articleLinkL");
+    queryNewsAPI(keyword, randomSource, "articleR", "fail2", "articleLinkR");
     document.getElementById("article1").innerHTML = sourceName.get(currentSource);
     document.getElementById("article2").innerHTML = sourceName.get(randomSource);
 }
