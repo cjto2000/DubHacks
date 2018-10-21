@@ -46,7 +46,7 @@ var sourceName = new Map([
     ["new-york-magazine", "New York Magazine"],
     ["politico", "Politico"],
     ["reuters", "Reuters"],
-    ["the-american-conservative", "the American Conservative"],
+    ["the-american-conservative", "The American Conservative"],
     ["the-economist", "The Economist"],
     ["the-guardian-uk", "The Guardian"],
     ["the-hill", "The Hill"],
