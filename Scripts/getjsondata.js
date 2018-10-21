@@ -79,7 +79,7 @@ function queryNewsAPI(keyword, source, article, fail) {
     var url = "https://newsapi.org/v2/everything?" +
     "q=" + keyword + "&" +
     "sources=" + source + "&" +
-    "apiKey=661e892338f046869d509792438cb3c0";
+    "apiKey=1c2c9496522c45818207e592c841a459";
 
     console.log(url);
 
