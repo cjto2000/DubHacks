@@ -4,6 +4,12 @@
         source is which news outlet to search from.
     post: print out some form of data response from the News API
 */
+var sourceMap = new Map([
+    [1, ['buzzfeed', 'the-huffington-post']],
+    [2, ['new-york-magazine']],
+    [3, ['the-new-york-times', 'the-washington-post']],
+]);
+
 function queryNewsAPI(keyword, source) {
     // Make a url with query strings and apiKey
     var url = "https://newsapi.org/v2/top-headlines?" +
@@ -23,6 +29,8 @@ function queryNewsAPI(keyword, source) {
             console.log(response);
             document.getElementById("article1").innerHTML = (response.articles[0].content);
         });
+
+    console.log(sourceMap);
 }
 
 function specifySource() {
