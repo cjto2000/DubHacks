@@ -8,6 +8,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <script src = "search.js"></script>
         <style>
             .fakeimg {
               height: 200px;
@@ -22,7 +23,7 @@
         </div>
 
         <!-- Navigation Bar -->
-        <div class="container-fluid justify">
+        <!-- <div class="container-fluid justify">
             <nav class="navbar navbar-expand-sm, bg-light justify-content-center text-center">
                 <div class="col-2"></div>
                 <a class = "col" href="#">World</a>
@@ -34,7 +35,7 @@
                 <a class = "col" href="#">Sports</a>
                 <div class="col-2"></div>
             </nav>
-        </div>
+        </div> -->
 
 
         <!-- Big Banner -->
@@ -45,39 +46,16 @@
         <!-- Dropdown -->
         <div class="container">
             <div class="row text-center">
-                <!-- Topic Half -->
-                <div class="col-3 text-right">
-                    <h1>Topic:</h1>
-                </div>
-                <div class="col-2 dropdown text-left">
-                    <button class="btn btn-secondary dropdown-toggle" data-flip = false type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Select a Topic
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" id="world" href="#">World</a>
-                        <a class="dropdown-item" id="us" href="#">US</a>
-                        <a class="dropdown-item" id="politics" href="#">Politics</a>
-                        <a class="dropdown-item" id="business" href="#">Business</a>
-                        <a class="dropdown-item" id="technology" href="#">Technology</a>
-                        <a class="dropdown-item" id="science" href="#">Science</a>
-                        <a class="dropdown-item" id="sports" href="#">Sports</a>
-                    </div>
-                </div>
-                <div class=col-2>
-                    <button type="button" name="button">
-                        Search
-                    </button>
-                </div>
-                <!-- News Source Half-->
-                <div class="col-3 text-right">
+                <!-- News Half -->
+                <div class="col text-right">
                     <h1>News Source:</h1>
                 </div>
-                <div class=" col-2 dropdown text-left m-b-none">
+                <div class=" col dropdown text-left m-b-none">
                     <button class="btn btn-secondary dropdown-toggle" data-flip=false type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Select a Source
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" id="abc-news" href="#">Action</a>
+                        <a class="dropdown-item" id="abc-news" href="#">ABC News</a>
                         <a class="dropdown-item" id="bbc-news" href="#">BBC News</a>
                         <a class="dropdown-item" id="bloomberg" href="#">Bloomberg</a>
                         <a class="dropdown-item" id="buzzfeed" href="#">Buzzfeed</a>
@@ -89,10 +67,18 @@
                         <a class="dropdown-item" id="the-american-conservative" href="#">American Conservative</a>
                     </div>
                 </div>
+                <!--  search half -->
+                <div class="col text-right">
+                    <input type="text" name="" value="" placeholder = "search keywords">
+                </div>
+                <div class="col text-left">
+                    <button type="button" name="button">
+                        Search
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-    <button onclick="specifySource();">Click for some data</button>
 
         <!-- Paragraphs -->
         <div class="container">
