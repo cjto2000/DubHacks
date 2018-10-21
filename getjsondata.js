@@ -41,9 +41,9 @@ var sourceToValue = new Map([
         source is which news outlet to search from.
     post: print out some form of data response from the News API
 */
-function queryNewsAPI(keyword, source) {
+function queryNewsAPI(keyword, source, article) {
     // Make a url with query strings and apiKey
-    var url = "https://newsapi.org/v2/top-headlines?" +
+    var url = "https://newsapi.org/v2/everything?" +
     "q=" + keyword + "&" +
     "sources=" + source + "&" +
     "apiKey=661e892338f046869d509792438cb3c0";
@@ -58,13 +58,35 @@ function queryNewsAPI(keyword, source) {
         })
         .then(function (response) {  // Processing to get the json from the response
             console.log(response);
-            document.getElementById("article1").innerHTML = (response.articles[0].content);
+            if (response.articles.length > 0) {
+                document.getElementById(article).setAttribute("src", response.articles[0].url);
+            } else {
+                document.getElementById(article).innerHTML = "No articles found.";
+            }
         });
-
-    console.log(valueToSource);
-    console.log(sourceToValue);
 }
 
 function specifySource() {
-    queryNewsAPI("trump", "abc-news");
+    // TODO: Get user's source
+    source = "bbc-news";
+    // TODO: Get user's keyword
+    keyword = "trump";
+    polarity = sourceToValue.get(source);
+    oppositePolarity = valueToSource.size - polarity + 1;
+    listOfSources = valueToSource.get(oppositePolarity);
+    randomSource = pickRandomSource(listOfSources);
+
+    queryNewsAPI(keyword, source, "article1");
+    queryNewsAPI(keyword, randomSource, "article2");
+
+}
+
+function pickRandomSource(listOfSources) {
+    var randomIndex = getRandomArbitrary(0, listOfSources.length);
+    console.log(randomIndex);
+    return listOfSources[randomIndex];
+}
+// Accessed from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+function getRandomArbitrary(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
 }
