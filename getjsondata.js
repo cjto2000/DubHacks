@@ -1,3 +1,40 @@
+//maps the bias value to source with that value
+var valueToSource = new Map([
+    [1, ["buzzfeed", "the-huffington-post"]],
+    [2, ["new-york-magazine"]],
+    [3, ["the-new-york-times", "the-washington-post", "the-guardian-uk", "politico"]],
+    [4, ["nbc-news", "abc-news", "bbc-news", "usa-today"]],
+    [5, ["reuters", "bloomberg", "cbs-news", "the-economist", "time"]],
+    [6, ["the-wall-street-journal", "the-hill"]],
+    [7, ["the-washington-times"]],
+    [8, ["fox-news", "the-american-conservative"]],
+]);
+
+// maps the news source to its bias value
+var sourceToValue = new Map([
+    ["abc-news", 4],
+    ["bbc-news", 4],
+    ["bloomberg", 5],
+    ["buzzfeed", 1],
+    ["cbs-news", 5],
+    ["fox-news", 8],
+    ["nbc-news", 4],
+    ["new-york-magazine", 2],
+    ["politico", 3],
+    ["reuters", 5],
+    ["the-american-conservative", 8],
+    ["the-economist", 5],
+    ["the-guardian-uk", 3],
+    ["the-hill", 1],
+    ["the-huffington-post", 1],
+    ["the-new-york-times", 3],
+    ["the-wall-street-journal", 6],
+    ["the-washington-post", 3],
+    ["the-washington-times", 7],
+    ["time", 5],
+    ["usa-today", 4],
+]);
+
 /*
     pre: takes in strings keyword and source.
 
@@ -27,6 +64,9 @@ function queryNewsAPI(keyword, source) {
                 document.getElementById("article1").innerHTML = "No articles found.";
             }
         });
+
+    console.log(valueToSource);
+    console.log(sourceToValue);
 }
 
 function specifySource() {
