@@ -110,7 +110,9 @@ function specifySource() {
     console.log("user source bias: " + polarity);
     oppositePolarity = valueToSource.size - polarity + 1;
     console.log("opposite source bias: " + oppositePolarity);
-    listOfSources = valueToSource.get(oppositePolarity);
+    var randomBiasIndex = pickRandomBias(oppositePolarity);
+    console.log("final source bias: " + randomBiasIndex);
+    listOfSources = valueToSource.get(randomBiasIndex);
     randomSource = pickRandomSource(listOfSources);
     console.log("opposite source: " + randomSource);
 
@@ -120,13 +122,25 @@ function specifySource() {
     document.getElementById("article2").innerHTML = sourceName.get(randomSource);
 }
 
+//picks a random bias value from the vicinity of the opposite source
+function pickRandomBias(oppositePolarity) {
+    var randomIndex = getRandomArbitrary(oppositePolarity - 1, oppositePolarity + 1);
+    if (randomIndex < 1) {
+        randomIndex = 1;
+    } else if (randomIndex > 8) {
+        randomIndex = 8;
+    }
+    return randomIndex;
+}
+
+//picks a random source from within the array that represents its bias value
 function pickRandomSource(listOfSources) {
     var randomIndex = getRandomArbitrary(0, listOfSources.length);
     return listOfSources[randomIndex];
 }
 // Accessed from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 function getRandomArbitrary(min, max) {
-  return Math.floor(Math.random() * (max - min) + min);
+    return Math.floor(Math.random() * (max - min) + min);
 }
 
 function formatSpaces(phrase) {
