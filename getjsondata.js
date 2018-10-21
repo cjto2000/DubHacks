@@ -35,7 +35,7 @@ var sourceToValue = new Map([
     ["usa-today", 4],
 ]);
 
-var sourceNames = new Map([
+var sourceName = new Map([
     ["abc-news", "ABC News"],
     ["bbc-news", "BBC News"],
     ["bloomberg", "Bloomberg"],
@@ -117,8 +117,8 @@ function specifySource() {
 
     queryNewsAPI(keyword, source, "articleL");
     queryNewsAPI(keyword, randomSource, "articleR");
-    sourceName.get(currentSource) = article1.value;
-    sourceName.get(randomSource) = article2.value;
+    document.getElementById("article1").innerHTML = sourceName.get(currentSource);
+    document.getElementById("article2").innerHTML = sourceName.get(randomSource);
 
 }
 
