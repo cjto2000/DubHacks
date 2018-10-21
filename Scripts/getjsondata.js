@@ -95,7 +95,7 @@ function queryNewsAPI(keyword, source, article, fail, link) {
                 var articleURL = response.articles[0].url;
                 document.getElementById(article).setAttribute("src", articleURL);
                 document.getElementById(link).setAttribute("href", articleURL);
-                document.getElementById(link).innerHTML = articleURL;
+                document.getElementById(link).innerHTML = "Article Link";
             } else {
                 document.getElementById(fail).innerHTML = "No articles found.";
             }
@@ -122,6 +122,8 @@ function specifySource() {
     document.getElementById("fail2").innerHTML = "";
     document.getElementById("articleL").src = "about:blank";
     document.getElementById("articleR").src = "about:blank";
+    document.getElementById("articleLinkR").innerHTML = "";
+    document.getElementById("articleLinkL").innerHTML = "";
     queryNewsAPI(keyword, source, "articleL", "fail1", "articleLinkL");
     queryNewsAPI(keyword, randomSource, "articleR", "fail2", "articleLinkR");
     document.getElementById("article1").innerHTML = sourceName.get(currentSource);
