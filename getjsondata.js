@@ -109,6 +109,7 @@ function specifySource() {
     keyword = document.getElementById("currentKeyword").value;
     console.log(keyword);
     polarity = sourceToValue.get(source);
+    console.log(polarity);
     oppositePolarity = valueToSource.size - polarity + 1;
     listOfSources = valueToSource.get(oppositePolarity);
     randomSource = pickRandomSource(listOfSources);
