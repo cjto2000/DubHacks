@@ -47,8 +47,6 @@ $(function(){
 });
 
 
-document.getElementById("currentKeyword").value;
-
 /*
     pre: takes in strings keyword and source.
 
@@ -84,7 +82,8 @@ function specifySource() {
     // TODO: Get user's source
     source = currentSource;
     // TODO: Get user's keyword
-    keyword = currentKeyword;
+    keyword = document.getElementById("currentKeyword").value;
+    console.log(keyword);
     polarity = sourceToValue.get(source);
     oppositePolarity = valueToSource.size - polarity + 1;
     listOfSources = valueToSource.get(oppositePolarity);
