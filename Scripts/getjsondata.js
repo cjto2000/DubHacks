@@ -117,6 +117,8 @@ function specifySource() {
     console.log("opposite source: " + randomSource);
     document.getElementById("fail1").innerHTML = "";
     document.getElementById("fail2").innerHTML = "";
+    document.getElementById("articleL").src = "about:blank";
+    document.getElementById("articleR").src = "about:blank";
     queryNewsAPI(keyword, source, "articleL", "fail1");
     queryNewsAPI(keyword, randomSource, "articleR", "fail2");
     document.getElementById("article1").innerHTML = sourceName.get(currentSource);
