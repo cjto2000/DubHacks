@@ -1,0 +1,1 @@
+var world = document.getElements
