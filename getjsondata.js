@@ -107,6 +107,7 @@ function specifySource() {
     source = currentSource;
     // TODO: Get user's keyword
     keyword = document.getElementById("currentKeyword").value;
+    keyword = formatSpaces(keyword);
     console.log(keyword);
     polarity = sourceToValue.get(source);
     console.log(polarity);
@@ -127,4 +128,8 @@ function pickRandomSource(listOfSources) {
 // Accessed from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 function getRandomArbitrary(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
+}
+
+function formatSpaces(phrase) {
+    return phrase.replace(/ /g, '%20');
 }
