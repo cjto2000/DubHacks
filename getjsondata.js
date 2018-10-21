@@ -4,7 +4,7 @@ var valueToSource = new Map([
     [2, ["new-york-magazine"]],
     [3, ["the-new-york-times", "the-washington-post", "the-guardian-uk", "politico"]],
     [4, ["nbc-news", "abc-news", "bbc-news", "usa-today"]],
-    [5, ["reuters", "bloomberg", "cbs-news", "the-economist", "time"]],
+    [5, ["reuters", "cbs-news", "the-economist", "time"]],
     [6, ["the-wall-street-journal", "the-hill"]],
     [7, ["the-washington-times"]],
     [8, ["fox-news", "the-american-conservative"]],
@@ -14,7 +14,6 @@ var valueToSource = new Map([
 var sourceToValue = new Map([
     ["abc-news", 4],
     ["bbc-news", 4],
-    ["bloomberg", 5],
     ["buzzfeed", 1],
     ["cbs-news", 5],
     ["fox-news", 8],
@@ -38,7 +37,6 @@ var sourceToValue = new Map([
 var sourceName = new Map([
     ["abc-news", "ABC News"],
     ["bbc-news", "BBC News"],
-    ["bloomberg", "Bloomberg"],
     ["buzzfeed", "Buzzfeed News"],
     ["cbs-news", "CBS News"],
     ["fox-news", "FOX News"],
@@ -63,9 +61,8 @@ var sourceName = new Map([
 var currentSource;
 $(function(){
   $(".dropdown-menu a").click(function(e){
-    var currentId = e.target.id;
     currentSource = e.target.id;
-    console.log(currentId);
+    console.log("user source: " + currentSource);
     $(".btn:first-child").text($(this).text());
     $(".btn:first-child").val($(this).text());
   });
@@ -108,23 +105,23 @@ function specifySource() {
     // TODO: Get user's keyword
     keyword = document.getElementById("currentKeyword").value;
     keyword = formatSpaces(keyword);
-    console.log(keyword);
+    console.log("keyword: " + keyword);
     polarity = sourceToValue.get(source);
-    console.log(polarity);
+    console.log("user source bias: " + polarity);
     oppositePolarity = valueToSource.size - polarity + 1;
+    console.log("opposite source bias: " + oppositePolarity);
     listOfSources = valueToSource.get(oppositePolarity);
     randomSource = pickRandomSource(listOfSources);
+    console.log("opposite source: " + randomSource);
 
     queryNewsAPI(keyword, source, "articleL");
     queryNewsAPI(keyword, randomSource, "articleR");
     document.getElementById("article1").innerHTML = sourceName.get(currentSource);
     document.getElementById("article2").innerHTML = sourceName.get(randomSource);
-
 }
 
 function pickRandomSource(listOfSources) {
     var randomIndex = getRandomArbitrary(0, listOfSources.length);
-    console.log(randomIndex);
     return listOfSources[randomIndex];
 }
 // Accessed from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
