@@ -1,3 +1,12 @@
+<!--
+Team Nairs: Annalice Ni, Justin Ong, James Qiu, Eric Yoon
+Sources for media bias:
+    Ad Fontes Media, Inc. (https://www.adfontesmedia.com/)
+    Media Bias/Fact Check (https://mediabiasfactcheck.com/)
+APIs used:
+    News API (https://newsapi.org/)
+-->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,6 +28,12 @@
                 height: 300%;
                 width: 100%;
                 border-style: none;
+            }
+            .scrollable-menu {
+                height: auto;
+                max-height: 350px;
+                overflow-x: hidden;
+                overflow-y: auto;
             }
         </style>
     </head>
@@ -51,10 +66,10 @@
                     <h3>News Source:</h3>
                 </div>
                 <div class="col dropdown text-left m-b-none">
-                    <button class="btn btn-secondary dropdown-toggle scrollable-menu" data-flip=false type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-secondary dropdown-toggle" data-flip=false type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Select a Source
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" id="abc-news" href="#">ABC News</a>
                         <a class="dropdown-item" id="the-american-conservative" href="#">The American Conservative</a>
                         <a class="dropdown-item" id="bbc-news" href="#">BBC News</a>
