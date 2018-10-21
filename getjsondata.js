@@ -9,10 +9,10 @@ function queryNewsAPI(keyword, source) {
     var url = "https://newsapi.org/v2/top-headlines?" +
     "q=" + keyword + "&" +
     "sources=" + source + "&" +
-    "apiKey=661e892338f046869d509792438cb3c0"
+    "apiKey=661e892338f046869d509792438cb3c0";
 
     console.log(url);
-    
+
     var req = new Request(url);
 
     fetch(req)  // using the MDN Fetch API
