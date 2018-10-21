@@ -74,7 +74,7 @@ $(function(){
         source is which news outlet to search from.
     post: print out some form of data response from the News API
 */
-function queryNewsAPI(keyword, source, article) {
+function queryNewsAPI(keyword, source, article, fail) {
     // Make a url with query strings and apiKey
     var url = "https://newsapi.org/v2/everything?" +
     "q=" + keyword + "&" +
@@ -94,7 +94,7 @@ function queryNewsAPI(keyword, source, article) {
             if (response.articles.length > 0) {
                 document.getElementById(article).setAttribute("src", response.articles[0].url);
             } else {
-                document.getElementById(article).innerHTML = "No articles found.";
+                document.getElementById(fail).innerHTML = "No articles found.";
             }
         });
 }
@@ -115,9 +115,10 @@ function specifySource() {
     listOfSources = valueToSource.get(randomBiasIndex);
     randomSource = pickRandomSource(listOfSources);
     console.log("opposite source: " + randomSource);
-
-    queryNewsAPI(keyword, source, "articleL");
-    queryNewsAPI(keyword, randomSource, "articleR");
+    document.getElementById("fail1").innerHTML = "";
+    document.getElementById("fail2").innerHTML = "";
+    queryNewsAPI(keyword, source, "articleL", "fail1");
+    queryNewsAPI(keyword, randomSource, "articleR", "fail2");
     document.getElementById("article1").innerHTML = sourceName.get(currentSource);
     document.getElementById("article2").innerHTML = sourceName.get(randomSource);
 }
