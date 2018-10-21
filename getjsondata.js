@@ -35,6 +35,17 @@ var sourceToValue = new Map([
     ["usa-today", 4],
 ]);
 
+var currentSource;
+$(function(){
+  $(".dropdown-menu a").click(function(e){
+    var currentId = e.target.id;
+    currentSource = e.target.id;
+    console.log(currentId);
+    $(".btn:first-child").text($(this).text());
+    $(".btn:first-child").val($(this).text());
+  });
+});
+
 /*
     pre: takes in strings keyword and source.
 
@@ -68,7 +79,7 @@ function queryNewsAPI(keyword, source, article) {
 
 function specifySource() {
     // TODO: Get user's source
-    source = "bbc-news";
+    source = currentSource;
     // TODO: Get user's keyword
     keyword = "trump";
     polarity = sourceToValue.get(source);
