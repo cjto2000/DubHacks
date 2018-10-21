@@ -116,6 +116,8 @@ function specifySource() {
 
     queryNewsAPI(keyword, source, "articleL");
     queryNewsAPI(keyword, randomSource, "articleR");
+    sourceName.get(currentSource) = article1.value;
+    sourceName.get(randomSource) = article2.value;
 
 }
 
