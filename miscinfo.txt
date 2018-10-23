@@ -1,0 +1,12 @@
+problem sources:
+buzzfeed
+fox news
+the guardian
+the hill
+the new york times
+
+backend issue:
+content must be served over HTTPS
+
+upload to server:
+gcloud app deploy —project uw-fair-news
